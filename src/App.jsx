@@ -537,7 +537,7 @@ export default function App() {
               <li>
                 <Globe size={16} />
                 <a href="https://www.wintage.vercel.app" target="_blank" rel="noopener noreferrer">
-                  www.wintage.vercel.app <ExternalLink size={12} />
+                  www.wintagedevelopers.com <ExternalLink size={12} />
                 </a>
               </li>
               <li>
