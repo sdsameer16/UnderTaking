@@ -5,12 +5,12 @@ import html2canvas from 'html2canvas';
 import './App.css';
 
 const DEFAULT_COORDS = {
-  studentName: { top: 618, left: 200, fontSize: 16 },
-  registrationNumber: { top: 618, left: 625, fontSize: 16 },
-  section: { top: 662, left: 160, fontSize: 16 },
-  date: { top: 662, left: 520, fontSize: 16 },
-  studentSig: { top: 692, left: 215, width: 220, height: 50 },
-  parentSig: { top: 734, left: 480, width: 220, height: 50 },
+  studentName: { top: 670, left: 200, fontSize: 16 },
+  registrationNumber: { top: 670, left: 625, fontSize: 16 },
+  section: { top: 714, left: 160, fontSize: 16 },
+  date: { top: 714, left: 520, fontSize: 16 },
+  studentSig: { top: 754, left: 215, width: 220, height: 50 },
+  parentSig: { top: 754, left: 480, width: 220, height: 50 },
 };
 
 export default function App() {
@@ -32,11 +32,20 @@ export default function App() {
 
   // Live site visit counter tracking with localStorage persistence
   const [siteVisits, setSiteVisits] = useState(() => {
-    const count = localStorage.getItem('wintage_site_visits');
-    const newCount = count ? parseInt(count, 10) + 1 : 1248; // Base realistic visit start counter
-    localStorage.setItem('wintage_site_visits', newCount.toString());
-    return newCount;
+    return parseInt(localStorage.getItem('vignan_site_visits') || '15', 10);
   });
+
+  useEffect(() => {
+    // Prevent double increment in Strict Mode using sessionStorage
+    if (!sessionStorage.getItem('visit_counted_vignan')) {
+      setSiteVisits(prev => {
+        const newCount = prev + 1;
+        localStorage.setItem('vignan_site_visits', newCount.toString());
+        return newCount;
+      });
+      sessionStorage.setItem('visit_counted_vignan', 'true');
+    }
+  }, []);
 
   // Active Dragging State
   const activeDragRef = useRef(null);
@@ -226,14 +235,20 @@ export default function App() {
             <p>Department of Computer Science and Engineering</p>
           </div>
         </div>
-        <button
-          className="btn-primary btn-download"
-          onClick={generatePDF}
-          disabled={isGeneratingPdf}
-        >
-          {isGeneratingPdf ? <RefreshCw className="spin" size={18} /> : <Download size={18} />}
-          <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download PDF'}</span>
-        </button>
+        <div className="header-actions">
+          <div className="live-visitor-counter">
+            <Eye size={16} className="icon-pulse" />
+            <span>{siteVisits.toLocaleString()} Visitors</span>
+          </div>
+          <button
+            className="btn-primary btn-download"
+            onClick={generatePDF}
+            disabled={isGeneratingPdf}
+          >
+            {isGeneratingPdf ? <RefreshCw className="spin" size={18} /> : <Download size={18} />}
+            <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download PDF'}</span>
+          </button>
+        </div>
       </header>
 
       <main className="main-content">
@@ -505,9 +520,7 @@ export default function App() {
           {/* About Wintage Developers */}
           <div className="footer-col about-col">
             <div className="wintage-brand">
-              <div className="wintage-logo-circle">
-                <span className="wintage-logo-text">WD</span>
-              </div>
+              <img src="/wintage-logo.png" alt="Wintage Developers Logo" className="wintage-logo-img" />
               <div>
                 <h3 className="wintage-title">WINTAGE DEVELOPERS</h3>
                 <p className="wintage-tagline">Crafting Digital Excellence, Swiftly!</p>
