@@ -1,0 +1,710 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-glow {
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.logo-container h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo-container p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card & Form Styles */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Signature Box Controls */
+.sig-upload-box {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sig-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.badge-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-file {
+  position: relative;
+}
+
+.scale-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.scale-control button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.scale-control button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* PDF Preview Section */
+.preview-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 794px;
+  margin-bottom: 1rem;
+}
+
+.preview-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.preview-header span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.pdf-paper-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+}
+
+/* Exact A4 Ratio Paper Styling */
+.pdf-paper {
+  width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #000000;
+  padding: 45px 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.pdf-logo-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pdf-logo-box {
+  border: 2px solid #000;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pdf-logo-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pdf-logo-title {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #1e3a8a;
+  line-height: 1.1;
+}
+
+.pdf-logo-sub {
+  font-size: 9px;
+  font-weight: 700;
+  color: #000;
+}
+
+.pdf-logo-deemed {
+  font-size: 8px;
+  background: #1e3a8a;
+  color: #fff;
+  padding: 1px 6px;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+.pdf-accreditation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border-left: 1px solid #000;
+  padding-left: 12px;
+}
+
+.naac {
+  background: #991b1b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.nirf {
+  border: 1px solid #000;
+  font-size: 8px;
+  font-weight: bold;
+  padding: 1px 4px;
+}
+
+.pdf-dept-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0 15px 0;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.pdf-divider {
+  border: none;
+  border-top: 1.5px solid #000;
+  margin-bottom: 25px;
+}
+
+.pdf-undertaking-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 25px;
+  font-family: 'Inter', sans-serif;
+}
+
+.pdf-body-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.pdf-rules-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.pdf-rules-list li {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.pdf-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 30px;
+  margin-top: 40px;
+}
+
+.pdf-field-cell {
+  display: flex;
+  align-items: baseline;
+  font-size: 13px;
+}
+
+.pdf-label {
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 6px;
+}
+
+.pdf-val {
+  border-bottom: 1px solid #000;
+  flex: 1;
+  padding-left: 4px;
+  min-height: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.pdf-sig-cell {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.pdf-sig-preview {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+.pdf-sig-preview img {
+  max-height: 55px;
+  max-width: 100%;
+  object-fit: contain;
+  transform-origin: bottom left;
+  transition: transform 0.1s ease;
+}
+
+.pdf-placeholder-line {
+  width: 100%;
+  height: 1px;
+}
+
+.pdf-footer-note {
+  margin-top: auto;
+  text-align: center;
+  font-style: italic;
+  font-size: 11px;
+  color: #444;
+  padding-top: 30px;
+}
+
+/* Camera Modal */
+.camera-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.camera-modal {
+  background: #1e293b;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.camera-header h3 {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.video-view {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-view video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-overlay-frame {
+  position: absolute;
+  inset: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+  pointer-events: none;
+}
+
+.camera-overlay-frame p {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.camera-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-capture {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+/* Direct Drag & Drop Styles */
+.drag-hint-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px dashed var(--accent);
+  color: #06b6d4;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.825rem;
+  margin-top: 1.5rem;
+}
+
+.draggable-item {
+  cursor: grab !important;
+  user-select: none;
+  touch-action: none;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+  border: 1px dashed transparent;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.draggable-item:hover {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.draggable-item.is-dragging {
+  cursor: grabbing !important;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.drag-icon-clean {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 4px;
+  opacity: 0.3;
+  color: #64748b;
+}
+
+/* Hide all drag icons, dashed borders & placeholders during PDF capture */
+.rendering-pdf .drag-icon-clean,
+.rendering-pdf .sig-placeholder-tag {
+  display: none !important;
+}
+
+.rendering-pdf .draggable-item {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+
+.sig-placeholder-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 11px;
+  color: #64748b;
+  font-style: italic;
+  border: 1px dashed #cbd5e1;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+}
+
+
+
+.pdf-paper-template {
+  position: relative;
+  width: 794px;
+  height: 1123px;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pdf-template-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+.overlay-field {
+  position: absolute;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.student-name-overlay {
+  top: 618px;
+  left: 200px;
+  width: 280px;
+}
+
+.reg-num-overlay {
+  top: 618px;
+  left: 625px;
+  width: 200px;
+}
+
+.section-overlay {
+  top: 662px;
+  left: 160px;
+  width: 250px;
+}
+
+.date-overlay {
+  top: 662px;
+  left: 520px;
+  width: 200px;
+}
+
+.overlay-sig {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  pointer-events: auto;
+  min-width: 150px;
+  min-height: 40px;
+}
+
+.student-sig-overlay {
+  top: 692px;
+  left: 215px;
+  width: 240px;
+  height: 48px;
+}
+
+.parent-sig-overlay {
+  top: 734px;
+  left: 480px;
+  width: 240px;
+  height: 48px;
+}
+
+.overlay-sig img {
+  max-height: 50px;
+  max-width: 100%;
+  object-fit: contain;
+  transform-origin: bottom left;
+  transition: transform 0.1s ease;
+  mix-blend-mode: multiply;
+}
+
