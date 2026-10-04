@@ -200,10 +200,10 @@ export default function App() {
       pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
 
       // Exact filename requested by user
-      const nameStr = (formData.studentName && formData.studentName.trim().length > 0) 
-        ? formData.studentName.trim().replace(/\s+/g, '_') 
+      const nameStr = (formData.studentName && formData.studentName.trim().length > 0)
+        ? formData.studentName.trim().replace(/\s+/g, '_')
         : 'Student_Name';
-      
+
       const fileName = `${nameStr}_ACCENTURE_T_UL_CAMPUSBITES.pdf`;
 
       // Trigger standard save
@@ -226,8 +226,8 @@ export default function App() {
             <p>Department of Computer Science and Engineering</p>
           </div>
         </div>
-        <button 
-          className="btn-primary btn-download" 
+        <button
+          className="btn-primary btn-download"
           onClick={generatePDF}
           disabled={isGeneratingPdf}
         >
@@ -296,22 +296,22 @@ export default function App() {
                   <span className="badge-success"><CheckCircle2 size={14} /> Uploaded</span>
                 )}
               </div>
-              
+
               <div className="button-group">
-                <button 
-                  type="button" 
-                  className="btn-secondary" 
+                <button
+                  type="button"
+                  className="btn-secondary"
                   onClick={() => setActiveCamera('student')}
                 >
                   <Camera size={16} /> Open Camera
                 </button>
                 <label className="btn-secondary btn-file">
                   <Upload size={16} /> Upload Photo
-                  <input 
-                    type="file" 
-                    accept="image/*" 
-                    onChange={(e) => handleFileUpload(e, 'student')} 
-                    hidden 
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleFileUpload(e, 'student')}
+                    hidden
                   />
                 </label>
               </div>
@@ -337,20 +337,20 @@ export default function App() {
               </div>
 
               <div className="button-group">
-                <button 
-                  type="button" 
-                  className="btn-secondary" 
+                <button
+                  type="button"
+                  className="btn-secondary"
                   onClick={() => setActiveCamera('parent')}
                 >
                   <Camera size={16} /> Open Camera
                 </button>
                 <label className="btn-secondary btn-file">
                   <Upload size={16} /> Upload Photo
-                  <input 
-                    type="file" 
-                    accept="image/*" 
-                    onChange={(e) => handleFileUpload(e, 'parent')} 
-                    hidden 
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleFileUpload(e, 'parent')}
+                    hidden
                   />
                 </label>
               </div>
@@ -383,14 +383,14 @@ export default function App() {
 
           <div className="pdf-paper-container">
             <div className={`pdf-paper-template ${isGeneratingPdf ? 'rendering-pdf' : ''}`} ref={pdfRef}>
-              <img 
-                src="/undertaking_template.jpg" 
-                alt="Accenture Specific Training Undertaking Form Template" 
+              <img
+                src="/undertaking_template.jpg"
+                alt="Accenture Specific Training Undertaking Form Template"
                 className="pdf-template-bg"
               />
 
               {/* Student Name */}
-              <div 
+              <div
                 className={`overlay-field draggable-item ${activeDragField === 'studentName' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.studentName.top}px`,
@@ -405,7 +405,7 @@ export default function App() {
               </div>
 
               {/* Registration Number */}
-              <div 
+              <div
                 className={`overlay-field draggable-item ${activeDragField === 'registrationNumber' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.registrationNumber.top}px`,
@@ -420,7 +420,7 @@ export default function App() {
               </div>
 
               {/* Section */}
-              <div 
+              <div
                 className={`overlay-field draggable-item ${activeDragField === 'section' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.section.top}px`,
@@ -435,7 +435,7 @@ export default function App() {
               </div>
 
               {/* Date */}
-              <div 
+              <div
                 className={`overlay-field draggable-item ${activeDragField === 'date' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.date.top}px`,
@@ -450,7 +450,7 @@ export default function App() {
               </div>
 
               {/* Student Signature */}
-              <div 
+              <div
                 className={`overlay-sig draggable-item ${activeDragField === 'studentSig' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.studentSig.top}px`,
@@ -462,9 +462,9 @@ export default function App() {
                 onTouchStart={(e) => startDrag(e, 'studentSig')}
               >
                 {formData.studentSignature ? (
-                  <img 
-                    src={formData.studentSignature} 
-                    alt="Student Signature" 
+                  <img
+                    src={formData.studentSignature}
+                    alt="Student Signature"
                     style={{ transform: `scale(${studentSigScale})` }}
                   />
                 ) : (
@@ -473,7 +473,7 @@ export default function App() {
               </div>
 
               {/* Parent Signature */}
-              <div 
+              <div
                 className={`overlay-sig draggable-item ${activeDragField === 'parentSig' ? 'is-dragging' : ''}`}
                 style={{
                   top: `${coords.parentSig.top}px`,
@@ -485,9 +485,9 @@ export default function App() {
                 onTouchStart={(e) => startDrag(e, 'parentSig')}
               >
                 {formData.parentSignature ? (
-                  <img 
-                    src={formData.parentSignature} 
-                    alt="Parent Signature" 
+                  <img
+                    src={formData.parentSignature}
+                    alt="Parent Signature"
                     style={{ transform: `scale(${parentSigScale})` }}
                   />
                 ) : (
@@ -525,10 +525,7 @@ export default function App() {
           <div className="footer-col contact-col">
             <h4>Developer Contact</h4>
             <ul className="contact-list">
-              <li>
-                <Users size={16} />
-                <span><strong>SD SAMEER</strong> (Web Solutions & AI Integration)</span>
-              </li>
+
               <li>
                 <Phone size={16} />
                 <a href="tel:+919494728970">+91 9494728970</a>
@@ -580,7 +577,7 @@ export default function App() {
               <h3>Capture {activeCamera === 'student' ? 'Student Signature' : 'Parent Signature'}</h3>
               <button onClick={() => setActiveCamera(null)} className="btn-close">&times;</button>
             </div>
-            
+
             {cameraError ? (
               <div className="camera-error">
                 <AlertCircle size={24} />
