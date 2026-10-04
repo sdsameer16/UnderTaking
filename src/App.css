@@ -587,26 +587,213 @@ input[type="text"]:focus {
   z-index: 100;
 }
 
-.drag-icon-clean {
+/* Footer & Wintage Developers Styling */
+.footer {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 3rem 2rem 1.5rem 2rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1fr;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-col h4 {
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Wintage Brand */
+.wintage-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wintage-logo-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+  border: 1px solid #fef08a;
+}
+
+.wintage-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.wintage-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 1px;
+}
+
+.wintage-tagline {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.wintage-desc {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.wintage-keywords {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* Contact Details List */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.contact-list a {
+  color: #60a5fa;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  margin-right: 4px;
-  opacity: 0.3;
-  color: #64748b;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
 }
 
-/* Hide all drag icons, dashed borders & placeholders during PDF capture */
-.rendering-pdf .drag-icon-clean,
-.rendering-pdf .sig-placeholder-tag {
-  display: none !important;
+.contact-list a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
 }
 
-.rendering-pdf .draggable-item {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+/* Visit Counter Badge */
+.visit-counter-badge {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
+
+.counter-icon-box {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent);
+  padding: 0.75rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-pulse {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+.counter-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+}
+
+.visit-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.counter-subnote {
+  font-size: 0.75rem;
+  color: #10b981;
+  margin-top: 0.85rem;
+  font-weight: 500;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  max-width: 1400px;
+  margin: 2.5rem auto 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.smarter-tomorrow {
+  color: #fbbf24;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 
 
 .sig-placeholder-tag {
